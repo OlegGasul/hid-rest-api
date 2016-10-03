@@ -1,4 +1,4 @@
-package hid.api
+package com.hid.api
 
 import grails.test.mixin.TestFor
 import spock.lang.Specification
@@ -16,7 +16,6 @@ class ResourceControllerSpec extends Specification {
     }
 
     void "test something"() {
-        expect:"fix me"
-            true == false
+
     }
 }

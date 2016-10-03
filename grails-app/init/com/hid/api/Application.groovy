@@ -1,4 +1,4 @@
-package hid.api
+package com.hid.api
 
 import grails.boot.GrailsApp
 import grails.boot.config.GrailsAutoConfiguration

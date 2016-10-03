@@ -1,6 +1,8 @@
 package com.hid.api.service
 
 import grails.transaction.Transactional
+import com.hid.api.model.Clazz
+import com.hid.api.model.Data
 
 @Transactional
 class ResourceService {
@@ -9,6 +11,6 @@ class ResourceService {
         def clazz = Clazz.findByName(clazzName)
         if (!clazz)
             return
-        Data.findByClazzAndKey(clazz: clazz, key: keyName)
+        Data.findByClazzAndKey(clazz, keyName)
     }
 }

@@ -1,4 +1,4 @@
-package hid.api
+package com.hid.api
 
 import grails.core.GrailsApplication
 import grails.util.Environment

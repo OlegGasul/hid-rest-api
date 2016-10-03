@@ -51,7 +51,7 @@ environments:
 grails:
     profile: rest-api
     codegen:
-        defaultPackage: hid.api
+        defaultPackage: com.hid.api
     spring:
         transactionManagement:
             proxies: false

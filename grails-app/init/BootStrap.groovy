@@ -20,8 +20,8 @@ class BootStrap {
             it.clear()
         }
 
-        def clazz = Clazz.findOrSaveByName('ARTWORK')
-        def data = new Data(clazz: clazz, key: 'PN0001', value: '{test: "test"}', contentLength: 14, contentType: 'application/json')
+        def clazz = Clazz.findOrSaveByName("ARTWORK".toLowerCase())
+        def data = new Data(clazz: clazz, key: "PN0001".toLowerCase(), value: '{test: "test"}', contentLength: 14, contentType: 'application/json')
         data.save(flush: true)
     }
 
