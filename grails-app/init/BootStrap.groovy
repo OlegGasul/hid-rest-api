@@ -1,3 +1,5 @@
+import com.hid.api.model.Clazz
+import com.hid.api.model.Data
 import com.hid.api.security.AppUser
 import com.hid.api.security.AppUserRole
 import com.hid.api.security.Role
@@ -17,6 +19,10 @@ class BootStrap {
             it.flush()
             it.clear()
         }
+
+        def clazz = Clazz.findOrSaveByName('ARTWORK')
+        def data = new Data(clazz: clazz, key: 'PN0001', value: '{test: "test"}', contentLength: 14, contentType: 'application/json')
+        data.save(flush: true)
     }
 
     def destroy = {

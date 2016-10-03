@@ -7,6 +7,7 @@ class Data {
     }
 
     String key
-    String value
     String contentType
+    String contentLength
+    String value
 }
