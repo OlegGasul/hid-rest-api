@@ -51,8 +51,7 @@ class ResourceController {
             }
 
             response.setContentType data.contentType
-            response.setContentLength data.contentLength
-
+            response.setHeader "X-Content-Length", data.contentLength + ''
             renderOK()
         } catch (Throwable t) {
             return renderServerError(t.message)
