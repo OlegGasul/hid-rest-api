@@ -55,7 +55,8 @@ class ResourceController {
         try {
             def data = resourceService.findData(params.clazz, params.key)
             if (!data) {
-                return notFound()
+                render notFound()
+                return
             }
 
             response.setContentType data.contentType
