@@ -9,7 +9,7 @@ Simple REST service for storing any kind of data. Application uses token authent
 
 ## How-to-use
 
-# Login
+### Login
 Get new access token
 curl -H "Accept: application/json" -H "Content-Type: application/json;" -X POST -d '{"username":"root","password":"se3ret123"}' http://{host}:{port}/api/login
 
@@ -17,18 +17,18 @@ You will recieve token_key:
 "token_type": "Bearer"
 "access_token": "9ojjug6thusuid9j8aue8slrkge2guc9"
 
-# Insert data
+### Insert data
 Put text data
 
 curl -H "Authorization: Bearer {token_key}" -H "Content-Type: application/json" -X POST -d '{"test": "test"}' http://{host}:{port}:8080/api/resource/artwork/key/pn0004
 
-# Request data
+### Request data
 curl -H "Authorization: Bearer {token_key}" -H "Accept: application/json" -X GET http://{host}:{port}/api/resource/artwork/key/pn0004
 
-# Request metadata information
+### Request metadata information
 curl -H "Authorization: Bearer {token_key}" -H "Accept: application/json" -X HEAD http://{host}:{port}/api/resource/artwork/key/pn0004
 
-# Delete data
+### Delete data
 curl -H "Authorization: Bearer {token_key}" -H "Accept: application/json" -X DELETE http://{host}:{port}/api/resource/artwork/key/pn0004
 
 ## Examples
