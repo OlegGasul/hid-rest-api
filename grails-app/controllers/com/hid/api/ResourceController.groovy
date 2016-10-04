@@ -51,7 +51,7 @@ class ResourceController {
             }
 
             response.setContentType data.contentType
-            response.setContentLengthLong data.contentLength
+            response.setContentLength data.contentLength
 
             renderOK()
         } catch (Throwable t) {
