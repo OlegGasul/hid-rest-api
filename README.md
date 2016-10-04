@@ -11,7 +11,7 @@ Simple REST service for storing any kind of data. Application uses token authent
 
 0) Install Java 1.7+ and PostgreSQL
 
-1) Setup database with scripts/db.sql script.
+1) Setup database with __scripts/db.sql__ script.
 
 2) Download Grails from https://grails.org/download.html (3.1.6 version)
 
@@ -36,8 +36,10 @@ You will recieve token_key:
 "token_type": "Bearer"
 "access_token": "9ojjug6thusuid9j8aue8slrkge2guc9"
 
+Use this token key in all other queries.
+
 ### Create data
-Put text data
+Post text data
 
 curl -H "Authorization: Bearer {token_key}" -H "Content-Type: application/json" -X POST -d '{"test": "test"}' http://{host}:{port}:8080/api/resource/artwork/key/pn0004
 
@@ -45,7 +47,7 @@ curl -H "Authorization: Bearer {token_key}" -H "Content-Type: application/json" 
 curl -H "Authorization: Bearer {token_key}" -H "Accept: application/json" -X GET http://{host}:{port}/api/resource/artwork/key/pn0004
 
 ### Update data
-curl -H "Authorization: Bearer {token_key}" -H "Content-Type: application/json" -X POST -d '{"test": "test2"}' http://{host}:{port}:8080/api/resource/artwork/key/pn0004
+curl -H "Authorization: Bearer {token_key}" -H "Content-Type: application/json" -X PUT -d '{"test": "test2"}' http://{host}:{port}:8080/api/resource/artwork/key/pn0004
 
 ### Delete data
 curl -H "Authorization: Bearer {token_key}" -H "Accept: application/json" -X DELETE http://{host}:{port}/api/resource/artwork/key/pn0004
