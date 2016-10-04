@@ -7,7 +7,22 @@ Simple REST service for storing any kind of data. Application uses token authent
 * Grails 3.1.6
 * PotgreSQL 9.4
 
-## How-to-use
+## How-to-deploy
+
+0) Install Java 1.7+ and PostgreSQL
+
+1) Setup database with scripts/db.sql script.
+
+2) Download Grails from https://grails.org/download.html (3.1.6 version)
+
+3) Clone the project git clone https://github.com/OlegGasul/hid-rest-api
+
+4) Setup
+Set database login/pass in application.yml
+
+5) Run the project
+grails run-app
+
 
 ### Login
 Get new access token

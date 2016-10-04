@@ -12,7 +12,7 @@ dataSource:
     jmxExport: true
     driverClassName: org.postgresql.Driver
     username: hid
-    password: 1
+    password: se3retpa33worD
 
 environments:
     development:
