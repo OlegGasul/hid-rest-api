@@ -2,9 +2,9 @@ package com.hid.api
 
 import grails.core.GrailsApplication
 import grails.plugin.springsecurity.annotation.Secured
-import grails.rest.*
 import grails.converters.*
 import org.springframework.beans.factory.annotation.Autowired
+import org.springframework.http.HttpStatus
 
 class ResourceController {
     @Autowired
@@ -17,8 +17,12 @@ class ResourceController {
 
     @Secured("ROLE_USER")
     def post() {
-        resourceService.setData(params.clazz, params.key, request.contentType, request.contentLength, request.inputStream)
-        renderOK()
+        try {
+            resourceService.setData(params.clazz, params.key, request.contentType, request.contentLength, request.inputStream)
+            render okResult()
+        } catch (Throwable t) {
+            render serverError(t.message)
+        }
     }
 
     @Secured("ROLE_USER")
@@ -26,20 +30,24 @@ class ResourceController {
         try {
             def data = resourceService.findData(params.clazz, params.key)
             if (!data) {
-                return renderNotFound()
+                return notFound()
             }
 
             response.setContentType data.contentType
             response.setContentLength data.contentLength
             response.outputStream << data.value
         } catch (Throwable t) {
-            return renderServerError(t.message)
+            return serverError(t.message)
         }
     }
 
     @Secured("ROLE_USER")
     def delete() {
-        resourceService.deleteData(params.clazz, params.key) ? renderOK() : renderNotFound()
+        try {
+            render resourceService.deleteData(params.clazz, params.key) ? okResult() : notFound()
+        } catch (Throwable t) {
+            render serverError(t.message)
+        }
     }
 
     @Secured("ROLE_USER")
@@ -47,28 +55,28 @@ class ResourceController {
         try {
             def data = resourceService.findData(params.clazz, params.key)
             if (!data) {
-                return renderNotFound()
+                return notFound()
             }
 
             response.setContentType data.contentType
             response.setHeader "X-Content-Length", data.contentLength + ''
-            renderOK()
+            render okResult()
         } catch (Throwable t) {
-            return renderServerError(t.message)
+            render serverError(t.message)
         }
     }
 
-    def renderOK() {
-        response.status = 200
+    def okResult() {
+        response.status = HttpStatus.OK.value
         [result: true] as JSON
     }
 
-    def renderNotFound() {
-        response.status = 404
+    def notFound() {
+        response.status = HttpStatus.NOT_FOUND.value
     }
 
-    def renderServerError(def message) {
-        response.status = 503
+    def serverError(def message) {
+        response.status = HttpStatus.SERVICE_UNAVAILABLE.value
         [result: false, message: message] as JSON
     }
 }
