@@ -29,7 +29,7 @@ class ResourceController {
             if (data.file) {
                 // todo
                 // read data from file
-                response.outputStream << new File("${grailsApplication.config.storage.path}/${params.clazz}/${params.key}/content.data").newInputStream()
+                response.outputStream << new File("${grailsApplication.config.storage.path}/${params.clazz}/${params.key}/${grailsApplication.config.storage.default_file_data_name}").newInputStream()
             } else {
                 // todo
                 // return data from value
@@ -43,6 +43,7 @@ class ResourceController {
     @Secured("ROLE_USER")
     def insert() {
         resourceService.setData(params.clazz, params.key, request.contentType, request.contentLength, request.inputStream)
+        renderOK()
     }
 
     @Secured("ROLE_USER")
@@ -56,10 +57,20 @@ class ResourceController {
             response.setContentType data.contentType
             response.setContentLengthLong data.contentLength
 
-            render ''
+            renderOK()
         } catch (Throwable t) {
             return renderServerError(t.message)
         }
+    }
+
+    @Secured("ROLE_USER")
+    def delete() {
+        resourceService.deleteData(params.clazz, params.key) ? renderOK() : renderNotFound()
+    }
+
+    def renderOK() {
+        response.status = 200
+        [result: true] as JSON
     }
 
     def renderNotFound() {

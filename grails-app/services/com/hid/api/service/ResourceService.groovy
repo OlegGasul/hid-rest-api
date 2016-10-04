@@ -31,27 +31,30 @@ class ResourceService {
         data.contentType = contentType
 
         if (MediaType.APPLICATION_OCTET_STREAM_VALUE.equals(contentType)) {
-            // todo
-            // save to file
             data.value = null
-            data.file = true;
+            data.file = true
 
             def path = "${grailsApplication.config.storage.path}/${clazzName}/${keyName}"
             new File(path).mkdirs()
 
-            def file = new File("${path}/content.data")
-            if (!file.exists()){
-                file.createNewFile()
-            }
-
+            def file = new File("${path}/${grailsApplication.config.storage.default_file_data_name}")
+            file.createNewFile()
             file << inputStream
         } else {
-            // todo
-            // store in database
             data.value = inputStream.text
-            data.file = false;
+            data.file = false
         }
 
-        data.save(flush: true)
+        data.save(failOnError: true, flush: true)
+    }
+
+    def deleteData(def clazzName, def keyName) {
+        def data = findData(clazzName, keyName)
+        if (!data)
+            return false
+
+        data.delete(failOnError: true, flush: true)
+
+        true
     }
 }

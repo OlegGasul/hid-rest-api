@@ -4,11 +4,12 @@ class Data {
     static belongsTo = [clazz: Clazz]
 
     static constraints = {
+        value nullable: true
     }
 
     String key
     String contentType
     Long contentLength
-    Boolean file
+    Boolean file = false
     String value
 }

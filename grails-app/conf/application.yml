@@ -17,7 +17,7 @@ dataSource:
 environments:
     development:
         dataSource:
-            dbCreate: create-drop
+            dbCreate: update
             url: jdbc:postgresql://localhost:5432/hid-api
     test:
         dataSource:
@@ -108,4 +108,5 @@ grails:
         encoding: UTF-8
 
 storage:
+    default_file_data_name: "content.data"
     path: "C:/projects/storage"
