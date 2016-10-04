@@ -6,6 +6,7 @@ import grails.converters.*
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.http.HttpStatus
 
+@Secured("ROLE_USER")
 class ResourceController {
     @Autowired
     GrailsApplication grailsApplication
@@ -15,7 +16,6 @@ class ResourceController {
     def clazz
     def key
 
-    @Secured("ROLE_USER")
     def post() {
         try {
             resourceService.setData(params.clazz, params.key, request.contentType, request.contentLength, request.inputStream)
@@ -25,7 +25,6 @@ class ResourceController {
         }
     }
 
-    @Secured("ROLE_USER")
     def get() {
         try {
             def data = resourceService.findData(params.clazz, params.key)
@@ -41,7 +40,6 @@ class ResourceController {
         }
     }
 
-    @Secured("ROLE_USER")
     def delete() {
         try {
             render resourceService.deleteData(params.clazz, params.key) ? okResult() : notFound()
@@ -50,7 +48,6 @@ class ResourceController {
         }
     }
 
-    @Secured("ROLE_USER")
     def head() {
         try {
             def data = resourceService.findData(params.clazz, params.key)
