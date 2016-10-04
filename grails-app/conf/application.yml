@@ -109,4 +109,4 @@ grails:
 
 storage:
     default_file_data_name: "content.data"
-    path: "C:/projects/storage"
+    path: "/tmp/storage"

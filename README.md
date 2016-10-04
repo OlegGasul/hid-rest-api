@@ -5,11 +5,11 @@ Simple REST service for storing any kind of data. Application uses Token authent
 * Java 1.7+
 * Groovy 2.4.6
 * Grails 3.1.6
-* PotgreSQL 9.4
+* PotgreSQL 9.4+
 
 ## How-to-deploy
 
-0) Install Java 1.7+ and PostgreSQL
+0) Install Java 1.7 (or above) and PostgreSQL 9.4
 
 1) Setup database with __scripts/db.sql__ script.
 
@@ -18,8 +18,13 @@ Simple REST service for storing any kind of data. Application uses Token authent
 3) Clone the project
 git clone https://github.com/OlegGasul/hid-rest-api
 
-4) Setup
-Set database login/pass in application.yml
+4) Setup application
+In application.yml set:
+
+a) database login/pass ("dataSource" section)
+
+b) path to file storage ("storage" section in application.yml)
+
 
 5) Run the project
 To run project as standalone application use grails run-app in root of project folder.
