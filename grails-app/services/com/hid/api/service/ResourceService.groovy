@@ -1,12 +1,16 @@
 package com.hid.api.service
 
+import grails.core.GrailsApplication
 import grails.transaction.Transactional
 import com.hid.api.model.Clazz
 import com.hid.api.model.Data
+import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.http.MediaType
 
 @Transactional
 class ResourceService {
+    @Autowired
+    GrailsApplication grailsApplication
 
     def findData(def clazzName, def keyName) {
         def clazz = Clazz.findByName(clazzName)
@@ -32,8 +36,14 @@ class ResourceService {
             data.value = null
             data.file = true;
 
-            def file = new File("${grailsApplication.config.storage.path}/${params.clazz}/${params.key}/content.data")
-            file.mkdirs()
+            def path = "${grailsApplication.config.storage.path}/${clazzName}/${keyName}"
+            new File(path).mkdirs()
+
+            def file = new File("${path}/content.data")
+            if (!file.exists()){
+                file.createNewFile()
+            }
+
             file << inputStream
         } else {
             // todo

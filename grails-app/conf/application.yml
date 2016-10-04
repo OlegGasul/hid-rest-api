@@ -108,4 +108,4 @@ grails:
         encoding: UTF-8
 
 storage:
-    path: "C:\\storage\\"
+    path: "C:/projects/storage"
