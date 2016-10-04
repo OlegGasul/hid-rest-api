@@ -9,7 +9,7 @@ class Data {
 
     String key
     String contentType
-    Long contentLength
+    int contentLength
     Boolean file = false
-    String value
+    byte[] value
 }

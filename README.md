@@ -26,8 +26,6 @@ In application.yml set:
 
 a) database login/pass ("dataSource" section)
 
-b) path to file storage ("storage" section in application.yml)
-
 
 5) Run the project
 

@@ -29,22 +29,7 @@ class ResourceService {
 
         data.contentLength = contentLength
         data.contentType = contentType
-
-        if (MediaType.APPLICATION_OCTET_STREAM_VALUE.equals(contentType)) {
-            data.value = null
-            data.file = true
-
-            def path = "${grailsApplication.config.storage.path}/${clazzName}/${keyName}"
-            new File(path).mkdirs()
-
-            def file = new File("${path}/${grailsApplication.config.storage.default_file_data_name}")
-            file.createNewFile()
-            file << inputStream
-        } else {
-            data.value = inputStream.text
-            data.file = false
-        }
-
+        data.value = inputStream.text.getBytes()
         data.save(failOnError: true, flush: true)
     }
 

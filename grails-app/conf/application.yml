@@ -106,7 +106,3 @@ grails:
         defaultScope: singleton
     converters:
         encoding: UTF-8
-
-storage:
-    default_file_data_name: "content.data"
-    path: "/tmp/storage"

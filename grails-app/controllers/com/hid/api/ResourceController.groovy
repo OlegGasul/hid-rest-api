@@ -30,13 +30,8 @@ class ResourceController {
             }
 
             response.setContentType data.contentType
-            response.setContentLengthLong data.contentLength
-
-            if (data.file) {
-                response.outputStream << new File("${grailsApplication.config.storage.path}/${params.clazz}/${params.key}/${grailsApplication.config.storage.default_file_data_name}").newInputStream()
-            } else {
-                response.outputStream << data.value
-            }
+            response.setContentLength data.contentLength
+            response.outputStream << data.value
         } catch (Throwable t) {
             return renderServerError(t.message)
         }
