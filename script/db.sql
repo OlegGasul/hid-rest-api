@@ -65,7 +65,7 @@ CREATE TABLE data
   content_type character varying(255) NOT NULL,
   file boolean NOT NULL,
   key character varying(255) NOT NULL,
-  value text,
+  value bytea,
   CONSTRAINT data_pkey PRIMARY KEY (id),
   CONSTRAINT fk_6ickyvra8fwno1khle5f5aerj FOREIGN KEY (clazz_id)
       REFERENCES clazz (id) MATCH SIMPLE
