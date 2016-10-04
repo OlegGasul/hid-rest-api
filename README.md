@@ -14,9 +14,10 @@ This solution designed with storing binary data using file system (not BLOBs in 
 
 1) Setup database with __scripts/db.sql__ script.
 
-2) Download Grails from https://grails.org/download.html (3.1.6 version)
+2) Download Grails 3.1.6 from https://grails.org/download.html
 
 3) Clone the project
+
 git clone https://github.com/OlegGasul/hid-rest-api
 
 4) Setup application
