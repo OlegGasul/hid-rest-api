@@ -1,5 +1,5 @@
 ## Description
-Simple REST service for storing any kind of data. Application uses token authentication.
+Simple REST service for storing any kind of data. Application uses Token authentication.
 
 ## Dependencies
 * Java 1.7+
