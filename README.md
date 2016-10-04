@@ -36,6 +36,8 @@ For generation war file use: __grails war__ command.
 
 ## Examples
 
+You can use any UI tool for making requests (Postman, Advanced REST Client, Paw, etc.)
+
 ### Login
 Get new access token
 
@@ -51,13 +53,13 @@ Use this token key in all other queries.
 ### Create data
 Post text data
 
-curl -H "Authorization: Bearer {token_key}" -H "Content-Type: application/json" -X POST -d '{"test": "test"}' http://{host}:{port}:8080/api/resource/artwork/key/pn0004
+curl -H "Authorization: Bearer {token_key}" -H "Content-Type: application/json" -X POST -d '{"test": "test"}' http://{host}:{port}/api/resource/artwork/key/pn0004
 
 ### Request data
 curl -H "Authorization: Bearer {token_key}" -H "Accept: application/json" -X GET http://{host}:{port}/api/resource/artwork/key/pn0004
 
 ### Update data
-curl -H "Authorization: Bearer {token_key}" -H "Content-Type: application/json" -X PUT -d '{"test": "test2"}' http://{host}:{port}:8080/api/resource/artwork/key/pn0004
+curl -H "Authorization: Bearer {token_key}" -H "Content-Type: application/json" -X PUT -d '{"test": "test2"}' http://{host}:{port}/api/resource/artwork/key/pn0004
 
 ### Delete data
 curl -H "Authorization: Bearer {token_key}" -H "Accept: application/json" -X DELETE http://{host}:{port}/api/resource/artwork/key/pn0004

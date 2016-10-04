@@ -21,6 +21,7 @@ class ResourceController {
             resourceService.setData(params.clazz, params.key, request.contentType, request.contentLength, request.inputStream)
             render okResult()
         } catch (Throwable t) {
+            log.error "Error: ${t.message}", t
             render serverError(t.message)
         }
     }
@@ -36,7 +37,8 @@ class ResourceController {
             response.setContentLength data.contentLength
             response.outputStream << data.value
         } catch (Throwable t) {
-            return serverError(t.message)
+            log.error "Error: ${t.message}", t
+            render serverError(t.message)
         }
     }
 
@@ -44,6 +46,7 @@ class ResourceController {
         try {
             render resourceService.deleteData(params.clazz, params.key) ? okResult() : notFound()
         } catch (Throwable t) {
+            log.error "Error: ${t.message}", t
             render serverError(t.message)
         }
     }
@@ -60,6 +63,7 @@ class ResourceController {
             response.setHeader "X-Content-Length", data.contentLength + ''
             render okResult()
         } catch (Throwable t) {
+            log.error "Error: ${t.message}", t
             render serverError(t.message)
         }
     }
