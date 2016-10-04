@@ -8,6 +8,7 @@ class Data {
 
     String key
     String contentType
-    String contentLength
+    Long contentLength
+    Boolean file
     String value
 }

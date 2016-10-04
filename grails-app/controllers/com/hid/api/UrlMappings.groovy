@@ -11,8 +11,7 @@ class UrlMappings {
 
         "/api/resource/$clazz/key/$key"(controller: 'resource', action: 'get', method: 'GET')
         "/api/resource/$clazz/key/$key"(controller: 'resource', action: 'insert', method: 'POST')
-        "/api/resource/$clazz/key/$key"(controller: 'resource', action: 'update', method: 'PUT')
-        "/api/resource/$clazz/key/$key"(controller: 'resource', action: 'delete', method: 'DELETE')
+        "/api/resource/$clazz/key/$key"(controller: 'resource', action: 'head', method: 'HEAD')
 
         "/"(controller: 'application', action:'index')
         "500"(view: '/error')

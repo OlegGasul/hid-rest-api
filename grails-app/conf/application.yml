@@ -108,4 +108,4 @@ grails:
         encoding: UTF-8
 
 storage:
-    path: "C:\\books\\Oleg_Gasiul_CV.pdf"
+    path: "C:\\storage\\"
