@@ -1,6 +1,6 @@
 ## Description
 Simple REST service for storing any kind of data. Application uses Token authentication.
-This solution designed with storing binary data using file system (not BLOBs in database).
+This solution designed with storing binary data using BLOB in database.
 
 ## Dependencies
 * Java 1.7+
