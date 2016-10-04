@@ -20,6 +20,7 @@ This solution designed with storing binary data using file system (not BLOBs in 
 git clone https://github.com/OlegGasul/hid-rest-api
 
 4) Setup application
+
 In application.yml set:
 
 a) database login/pass ("dataSource" section)
@@ -28,9 +29,12 @@ b) path to file storage ("storage" section in application.yml)
 
 
 5) Run the project
-To run project as standalone application use grails run-app in root of project folder.
+
+To run project as standalone application use __grails run-app__ in root of project folder.
+
 You can also deploy it under any application server.
-For generation war file use: grails war command.
+
+For generation war file use: __grails war__ command.
 
 ## Examples
 
