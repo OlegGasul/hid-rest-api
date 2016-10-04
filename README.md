@@ -53,6 +53,8 @@ curl -H "Authorization: Bearer {token_key}" -H "Content-Type: application/json" 
 curl -H "Authorization: Bearer {token_key}" -H "Accept: application/json" -X DELETE http://{host}:{port}/api/resource/artwork/key/pn0004
 
 ### Request metadata information
+For receiving only information about resource use HEAD method.
+
 curl -H "Authorization: Bearer {token_key}" -H "Accept: application/json" -X HEAD http://{host}:{port}/api/resource/artwork/key/pn0004
 
 
