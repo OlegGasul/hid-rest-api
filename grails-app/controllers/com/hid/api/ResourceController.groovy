@@ -33,12 +33,8 @@ class ResourceController {
             response.setContentLengthLong data.contentLength
 
             if (data.file) {
-                // todo
-                // read data from file
                 response.outputStream << new File("${grailsApplication.config.storage.path}/${params.clazz}/${params.key}/${grailsApplication.config.storage.default_file_data_name}").newInputStream()
             } else {
-                // todo
-                // return data from value
                 response.outputStream << data.value
             }
         } catch (Throwable t) {
