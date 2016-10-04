@@ -15,7 +15,8 @@ Simple REST service for storing any kind of data. Application uses token authent
 
 2) Download Grails from https://grails.org/download.html (3.1.6 version)
 
-3) Clone the project git clone https://github.com/OlegGasul/hid-rest-api
+3) Clone the project
+git clone https://github.com/OlegGasul/hid-rest-api
 
 4) Setup
 Set database login/pass in application.yml
