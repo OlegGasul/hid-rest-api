@@ -41,7 +41,7 @@ Get new access token
 
 curl -H "Accept: application/json" -H "Content-Type: application/json;" -X POST -d '{"username":"root","password":"se3ret123"}' http://{host}:{port}/api/login
 
-You will recieve token_key:
+You will receive token_key:
 
 "token_type": "Bearer"
 "access_token": "9ojjug6thusuid9j8aue8slrkge2guc9"
