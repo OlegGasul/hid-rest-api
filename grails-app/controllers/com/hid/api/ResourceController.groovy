@@ -16,6 +16,12 @@ class ResourceController {
     def key
 
     @Secured("ROLE_USER")
+    def post() {
+        resourceService.setData(params.clazz, params.key, request.contentType, request.contentLength, request.inputStream)
+        renderOK()
+    }
+
+    @Secured("ROLE_USER")
     def get() {
         try {
             def data = resourceService.findData(params.clazz, params.key)
@@ -41,9 +47,8 @@ class ResourceController {
     }
 
     @Secured("ROLE_USER")
-    def insert() {
-        resourceService.setData(params.clazz, params.key, request.contentType, request.contentLength, request.inputStream)
-        renderOK()
+    def delete() {
+        resourceService.deleteData(params.clazz, params.key) ? renderOK() : renderNotFound()
     }
 
     @Secured("ROLE_USER")
@@ -61,11 +66,6 @@ class ResourceController {
         } catch (Throwable t) {
             return renderServerError(t.message)
         }
-    }
-
-    @Secured("ROLE_USER")
-    def delete() {
-        resourceService.deleteData(params.clazz, params.key) ? renderOK() : renderNotFound()
     }
 
     def renderOK() {
