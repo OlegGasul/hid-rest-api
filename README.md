@@ -22,7 +22,9 @@ git clone https://github.com/OlegGasul/hid-rest-api
 Set database login/pass in application.yml
 
 5) Run the project
-grails run-app
+To run project as standalone application use grails run-app in root of project folder.
+You can also deploy it under any application server.
+For generation war file use: grails war command.
 
 ## Examples
 
