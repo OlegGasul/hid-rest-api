@@ -7,13 +7,10 @@ import com.hid.api.security.Role
 class BootStrap {
 
     def init = { servletContext ->
-        def adminRole = Role.findOrSaveByAuthority('ROLE_ADMIN')
         def userRole = Role.findOrSaveByAuthority('ROLE_USER')
-        def testUser = AppUser.findOrSaveByUsernameAndPassword('me', 'password')
-        def adminUser = AppUser.findOrSaveByUsernameAndPassword('admin', 'admin')
+        def testUser = AppUser.findOrSaveByUsernameAndPassword('root', 'se3ret123')
 
         AppUserRole.create testUser, userRole
-        AppUserRole.create adminUser, adminRole
 
         AppUserRole.withSession {
             it.flush()

@@ -9,8 +9,10 @@ class UrlMappings {
             }
         }
 
-        "/api/resource/$clazz/key/$key"(controller: 'resource', action: 'index', method: 'GET')
+        "/api/resource/$clazz/key/$key"(controller: 'resource', action: 'get', method: 'GET')
         "/api/resource/$clazz/key/$key"(controller: 'resource', action: 'insert', method: 'POST')
+        "/api/resource/$clazz/key/$key"(controller: 'resource', action: 'update', method: 'PUT')
+        "/api/resource/$clazz/key/$key"(controller: 'resource', action: 'delete', method: 'DELETE')
 
         "/"(controller: 'application', action:'index')
         "500"(view: '/error')
