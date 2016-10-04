@@ -23,6 +23,7 @@ Set database login/pass in application.yml
 5) Run the project
 grails run-app
 
+## Examples
 
 ### Login
 Get new access token
@@ -51,5 +52,4 @@ curl -H "Authorization: Bearer {token_key}" -H "Accept: application/json" -X DEL
 ### Request metadata information
 curl -H "Authorization: Bearer {token_key}" -H "Accept: application/json" -X HEAD http://{host}:{port}/api/resource/artwork/key/pn0004
 
-## Examples
 
