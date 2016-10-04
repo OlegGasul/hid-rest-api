@@ -24,8 +24,7 @@ git clone https://github.com/OlegGasul/hid-rest-api
 
 In application.yml set:
 
-a) database login/pass ("dataSource" section)
-
+database url, login/pass ("dataSource" section)
 
 5) Run the project
 
