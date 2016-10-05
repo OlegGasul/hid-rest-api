@@ -18,7 +18,7 @@ class ResourceController {
 
     def post() {
         try {
-            resourceService.setData(params.clazz, params.key, request.contentType, request.contentLength, request.inputStream)
+            resourceService.setData(params.clazz.toLowerCase(), params.key.toLowerCase(), request.contentType, request.contentLength, request.inputStream)
             render okResult()
         } catch (Throwable t) {
             log.error "Error: ${t.message}", t
@@ -28,7 +28,7 @@ class ResourceController {
 
     def get() {
         try {
-            def data = resourceService.findData(params.clazz, params.key)
+            def data = resourceService.findData(params.clazz.toLowerCase(), params.key.toLowerCase())
             if (!data) {
                 render notFound()
                 return
@@ -45,7 +45,7 @@ class ResourceController {
 
     def delete() {
         try {
-            render resourceService.deleteData(params.clazz, params.key) ? okResult() : notFound()
+            render resourceService.deleteData(params.clazz.toLowerCase(), params.key.toLowerCase()) ? okResult() : notFound()
         } catch (Throwable t) {
             log.error "Error: ${t.message}", t
             render serverError(t.message)
@@ -54,7 +54,7 @@ class ResourceController {
 
     def head() {
         try {
-            def data = resourceService.findData(params.clazz, params.key)
+            def data = resourceService.findData(params.clazz.toLowerCase(), params.key.toLowerCase())
             if (!data) {
                 render notFound()
                 return
