@@ -41,11 +41,21 @@ You can use any UI tool for making requests (Postman, Advanced REST Client, Paw,
 ### Login
 Get new access token
 
-curl -H "Accept: application/json" -H "Content-Type: application/json;" -X POST -d '{"username":"root","password":"se3ret123"}' http://{host}:{port}/api/login
+URL:
+GET http://{host}:{port}/api/login
+
+Headers:  
+Accept: application/json  
+Content-Type: application/json  
+
+Body:
+{"username": "root", "password": "se3ret123"}
+
+curl -H "Accept: application/json" -H "Content-Type: application/json" -X POST -d '{"username":"root","password":"se3ret123"}' http://{host}:{port}/api/login
 
 You will receive token_key:
 
-"token_type": "Bearer"
+"token_type": "Bearer"  
 "access_token": "9ojjug6thusuid9j8aue8slrkge2guc9"
 
 Use this token key in all other queries.
@@ -53,19 +63,52 @@ Use this token key in all other queries.
 ### Create data
 Post text data
 
+URL:
+POST http://{host}:{port}/api/resource/artwork/key/pn0004
+
+Headers:  
+Authorization: Bearer {token_key}  
+Content-Type: application/json  
+
+Body:  
+{"test": "test"}
+
 curl -H "Authorization: Bearer {token_key}" -H "Content-Type: application/json" -X POST -d '{"test": "test"}' http://{host}:{port}/api/resource/artwork/key/pn0004
 
 ### Request data
 curl -H "Authorization: Bearer {token_key}" -H "Accept: application/json" -X GET http://{host}:{port}/api/resource/artwork/key/pn0004
 
 ### Update data
+
+URL:  
+POST http://{host}:{port}/api/resource/artwork/key/pn0004
+
+Headers:  
+Authorization: Bearer {token_key}  
+Content-Type: application/json
+
 curl -H "Authorization: Bearer {token_key}" -H "Content-Type: application/json" -X PUT -d '{"test": "test2"}' http://{host}:{port}/api/resource/artwork/key/pn0004
 
 ### Delete data
+
+URL:  
+DELETE http://{host}:{port}/api/resource/artwork/key/pn0004
+
+Headers:  
+Authorization: Bearer {token_key}  
+Accept: application/json
+
 curl -H "Authorization: Bearer {token_key}" -H "Accept: application/json" -X DELETE http://{host}:{port}/api/resource/artwork/key/pn0004
 
 ### Request metadata information
 For receiving only information about resource use HEAD method.
+
+URL:  
+HEAD http://{host}:{port}/api/resource/artwork/key/pn0004
+
+Headers:  
+Authorization: Bearer {token_key}  
+Accept: application/json
 
 curl -H "Authorization: Bearer {token_key}" -H "Accept: application/json" -X HEAD http://{host}:{port}/api/resource/artwork/key/pn0004
 
