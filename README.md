@@ -41,14 +41,14 @@ You can use any UI tool for making requests (Postman, Advanced REST Client, Paw,
 ### Login
 Get new access token
 
-URL:
+URL:  
 GET http://{host}:{port}/api/login
 
 Headers:  
 Accept: application/json  
 Content-Type: application/json  
 
-Body:
+Body:  
 {"username": "root", "password": "se3ret123"}
 
 curl -H "Accept: application/json" -H "Content-Type: application/json" -X POST -d '{"username":"root","password":"se3ret123"}' http://{host}:{port}/api/login
@@ -63,7 +63,7 @@ Use this token key in all other queries.
 ### Create data
 Post text data
 
-URL:
+URL:  
 POST http://{host}:{port}/api/resource/artwork/key/pn0004
 
 Headers:  
