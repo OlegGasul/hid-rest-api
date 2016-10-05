@@ -51,6 +51,9 @@ Content-Type: application/json
 Body:  
 {"username": "root", "password": "se3ret123"}
 
+Result:  
+{"username":"root","roles":["ROLE_USER"],"token_type":"Bearer","access_token":"9ojjug6thusuid9j8aue8slrkge2guc9"}
+
 curl -H "Accept: application/json" -H "Content-Type: application/json" -X POST -d '{"username":"root","password":"se3ret123"}' http://{host}:{port}/api/login
 
 You will receive token_key:
@@ -73,19 +76,38 @@ Content-Type: application/json
 Body:  
 {"test": "test"}
 
+Result:  
+{"result": true}
+
 curl -H "Authorization: Bearer {token_key}" -H "Content-Type: application/json" -X POST -d '{"test": "test"}' http://{host}:{port}/api/resource/artwork/key/pn0004
 
 ### Request data
+URL:  
+GET http://{host}:{port}/api/resource/artwork/key/pn0004
+
+Headers:  
+Authorization: Bearer {token_key}  
+Content-Type: application/json  
+
+Result:  
+{"test": "test"}
+
 curl -H "Authorization: Bearer {token_key}" -H "Accept: application/json" -X GET http://{host}:{port}/api/resource/artwork/key/pn0004
 
 ### Update data
 
 URL:  
-POST http://{host}:{port}/api/resource/artwork/key/pn0004
+PUT http://{host}:{port}/api/resource/artwork/key/pn0004
 
 Headers:  
 Authorization: Bearer {token_key}  
 Content-Type: application/json
+
+Body:  
+{"test2": "test2"}
+
+Result:  
+{"result": true}
 
 curl -H "Authorization: Bearer {token_key}" -H "Content-Type: application/json" -X PUT -d '{"test": "test2"}' http://{host}:{port}/api/resource/artwork/key/pn0004
 
@@ -109,6 +131,11 @@ HEAD http://{host}:{port}/api/resource/artwork/key/pn0004
 Headers:  
 Authorization: Bearer {token_key}  
 Accept: application/json
+
+Result:
+Empty response body. All information you can find in headers.  
+X-Content-Length: 7  
+Content-Type: application/json;charset=UTF-8  
 
 curl -H "Authorization: Bearer {token_key}" -H "Accept: application/json" -X HEAD http://{host}:{port}/api/resource/artwork/key/pn0004
 
